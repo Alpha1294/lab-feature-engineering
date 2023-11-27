@@ -1,21 +1,27 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# Lab | Feature engineering
+# Lab | Revisiting Machine Learning Case Study
 
-- In this lab, you will use `learningSet.csv` file which you have already cloned in the previous activities. 
-- Continue working in the same notebook as you did in the previous Lab. 
+- In this lab, you will use `learningSet.csv` file which you already have cloned in today's activities. The full process for the week is shown in the PDF file.
 
 ### Instructions
 
-**Again go through all of the Numerical columns and apply the techniques that were performed in the lesson**
+Complete the following steps on the categorical columns in the dataset:
 
-Then we will work on cleaning some of the other columns in the dataset using the techniques that we used before in the lessons.
+- Check for null values in all the columns
+- Exclude the following variables by looking at the definitions. Create a new empty list called `drop_list`. We will append this list and then drop all the columns in this list later:
+    - `OSOURCE` - symbol definitions not provided, too many categories
+    - `ZIP` - we are including state already
+- Identify columns that have over 50% missing values.
+- Remove those columns from the dataframe
+- Perform all of the cleaning processes from the Lesson.
+- Reduce the number of categories in the column `GENDER`. The column should only have either "M" for males, "F" for females, and "other" for all the rest
+    - Note that there are a few null values in the column. We will first replace those null values using the code below:
 
-- Check for null values in the numerical columns.
-- After going through the lesson techniques there should only be a few columns left with NaN values to clean.
-- Use appropriate methods to clean the columns which still contain NaN values.
-- Use appropriate EDA technique where ever necessary.
-
+    ```python
+    print(categorical['GENDER'].value_counts())
+    categorical['GENDER'] = categorical['GENDER'].fillna('F')
+    ```
 
 
 
